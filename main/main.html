@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Visualizador de Tablas — Main</title>
+    <link rel="stylesheet" href="main.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="topbar-inner">
+        <div class="brand">
+          <div class="logo">T</div>
+          <div class="brand-text">
+            <div class="app-title">Visualizador de Tablas</div>
+            <div class="app-sub">Guías de personajes</div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <div class="container">
+      <aside class="sidebar" id="sidebar">
+        <div class="controls">
+          <div class="combo" id="combo">
+            <input
+              id="comboInput"
+              class="combo-input"
+              placeholder="Buscar personaje..."
+              autocomplete="off"
+            />
+            <button id="comboBtn" class="combo-btn" aria-label="Abrir lista">
+              ▾
+            </button>
+            <ul id="comboList" class="combo-list" role="listbox"></ul>
+          </div>
+
+          <div class="filters">
+            <label class="filter">
+              <span>Rareza</span>
+              <select id="filterRarity" class="filter-select">
+                <option value="">Todas</option>
+                <option value="5">5★</option>
+                <option value="4">4★</option>
+              </select>
+            </label>
+
+            <label class="filter">
+              <span>Arma</span>
+              <select id="filterWeapon" class="filter-select">
+                <option value="">Todas</option>
+                <option value="lanza">Lanza</option>
+                <option value="mandoble">Mandoble</option>
+                <option value="catalizador">Catalizador</option>
+                <option value="espada">Espada</option>
+                <option value="arco">Arco</option>
+              </select>
+            </label>
+
+            <label class="filter">
+              <span>Elemento</span>
+              <select id="filterElement" class="filter-select">
+                <option value="">Todos</option>
+                <option value="electro">Electro</option>
+                <option value="hydro">Hydro</option>
+                <option value="pyro">Pyro</option>
+                <option value="anemo">Anemo</option>
+                <option value="dendro">Dendro</option>
+                <option value="geo">Geo</option>
+                <option value="cryo">Cryo</option>
+              </select>
+            </label>
+          </div>
+
+          <div class="cards-wrap" id="cardsWrap"></div>
+        </div>
+      </aside>
+
+      <main class="main">
+        <div class="preview-header">
+          <h2 id="currentTitle">Selecciona un personaje</h2>
+          <div id="meta" class="meta">—</div>
+        </div>
+        <div class="preview">
+          <iframe
+            id="preview"
+            sandbox="allow-same-origin allow-scripts allow-forms"
+            src=""
+            title="Previsualización"
+          ></iframe>
+          <div id="empty" class="empty">
+            Aquí aparecerá la tabla seleccionada
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <script id="tablesIndex" type="application/json">
+      [
+        {
+          "title": "Flins",
+          "file": "../tablas/flins.html",
+          "meta": "Ficha principal",
+          "rarity": "5",
+          "weapon": "lanza",
+          "element": "electro",
+          "img": "../img/personajes/flins.png"
+        }
+      ]
+    </script>
+
+    <script src="main.js"></script>
+  </body>
+</html>
