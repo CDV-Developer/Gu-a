@@ -666,3 +666,14 @@ iframe#preview {
 .combo-clear:empty {
   min-width: 36px;
 }
+@media (max-width: 768px) {
+  .preview {
+    min-height: 300px;
+  }
+}
+
+@media (max-width: 480px) {
+  .preview {
+    min-height: 200px;
+  }
+}

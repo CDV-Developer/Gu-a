@@ -109,7 +109,7 @@ body[data-element="anemo"] {
 }
 html,
 body {
-  height: 100%;
+  min-height: 100%;
   margin: 0;
   font-family: "Segoe UI", Inter, system-ui, Arial, sans-serif;
   background: linear-gradient(135deg, var(--bg), var(--panel));
@@ -210,8 +210,8 @@ body {
   border-radius: 2px;
 }
 .weapons-grid {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
   gap: 16px;
   justify-content: center;
   align-items: stretch;
@@ -225,9 +225,7 @@ body {
   text-align: center;
   transition: all 0.3s ease;
   cursor: pointer;
-  flex: 0 1 150px;
   min-width: 120px;
-  max-width: 300px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -538,80 +536,6 @@ body {
   border: 1px solid rgba(var(--accent-rgb), 0.2);
   line-height: 1.6;
 }
-@media (max-width: 768px) {
-  .container {
-    padding: 0 12px;
-  }
-  .header h1 {
-    font-size: 28px;
-  }
-  .section {
-    padding: 24px 16px;
-  }
-  .weapons-grid,
-  .artifacts-grid {
-    grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
-    gap: 12px;
-  }
-  .principales-grid {
-    grid-template-columns: 1fr;
-  }
-  .team-line {
-    gap: 10px;
-  }
-  .team-line img {
-    max-width: 72px;
-    height: 72px;
-  }
-  .team-row {
-    padding: 18px;
-  }
-  .talents {
-    gap: 6px;
-  }
-  .talent {
-    flex: 0 1 62px;
-    width: 62px;
-    height: 62px;
-    min-width: 44px;
-  }
-  .talent img {
-    max-width: 50px;
-    max-height: 50px;
-  }
-  .talent.arrow {
-    width: 40px;
-    height: 40px;
-    font-size: 26px;
-  }
-}
-@media (max-width: 480px) {
-  .talents {
-    gap: 6px;
-  }
-  .talent {
-    flex: 0 1 56px;
-    width: 56px;
-    height: 56px;
-    min-width: 40px;
-  }
-  .talent img {
-    max-width: 44px;
-    max-height: 44px;
-  }
-  .talent.arrow {
-    width: 36px;
-    height: 36px;
-    font-size: 24px;
-  }
-  .team-line {
-    gap: 8px;
-  }
-  .team-line img {
-    max-width: 60px;
-    height: 60px;
-  }
-}
 
 .artifact--split {
   position: relative;
@@ -669,33 +593,6 @@ body {
 
 .artifact--split .split-label {
   display: none !important;
-}
-
-@media (max-width: 768px) {
-  .artifact--split {
-    flex: 0 1 110px;
-    min-width: 88px;
-    max-width: 140px;
-    padding: 6px;
-  }
-  .artifact--split .split-img {
-    inset: 6px;
-    width: calc(100% - 12px);
-    height: calc(100% - 12px);
-  }
-}
-@media (max-width: 480px) {
-  .artifact--split {
-    flex: 0 1 92px;
-    min-width: 76px;
-    max-width: 120px;
-    padding: 6px;
-  }
-  .artifact--split .split-img {
-    inset: 6px;
-    width: calc(100% - 12px);
-    height: calc(100% - 12px);
-  }
 }
 
 .team-line .member {
@@ -758,43 +655,139 @@ body {
 }
 
 @media (max-width: 768px) {
+  .container {
+    padding: 0 12px;
+  }
+  .header h1 {
+    font-size: 28px;
+  }
+  .section {
+    padding: 24px 16px;
+  }
+  .weapons-grid {
+    grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
+    gap: 12px;
+  }
+  .artifacts-grid {
+    grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
+    gap: 12px;
+  }
+  .weapon {
+    min-width: 110px;
+    width: 100%;
+  }
+  .principales-grid {
+    grid-template-columns: 1fr;
+  }
+  .team-line {
+    gap: 10px;
+  }
+  .team-line img {
+    max-width: 72px;
+    height: 72px;
+  }
+  .team-row {
+    padding: 18px;
+  }
+  .talents {
+    gap: 4px;
+    padding: 8px 4px;
+    justify-content: space-evenly;
+  }
+  .talent {
+    flex: 0 1 64px;
+    width: 64px;
+    height: 64px;
+    min-width: 48px;
+  }
+  .talent img {
+    max-width: 52px;
+    max-height: 52px;
+  }
+  .talent.arrow {
+    flex: 0 0 32px;
+    width: 32px;
+    height: 32px;
+    font-size: 22px;
+  }
   .team-line .member.best::before,
   .weapon.best::before,
   .artifact.best::before,
   .artifact--split.best::before {
-    width: 28px;
-    height: 28px;
-    font-size: 16px;
-    top: 6px;
-    left: 6px;
+    width: 24px;
+    height: 24px;
+    font-size: 14px;
+    top: 4px;
+    left: 4px;
     border-width: 2px;
   }
   .team-line .member img {
     max-width: 72px;
     height: 72px;
   }
+  .artifact--split {
+    flex: 0 1 110px;
+    min-width: 88px;
+    max-width: 140px;
+    padding: 6px;
+  }
+  .artifact--split .split-img {
+    inset: 6px;
+    width: calc(100% - 12px);
+    height: calc(100% - 12px);
+  }
 }
 
 @media (max-width: 480px) {
+  .talents {
+    gap: 3px;
+    padding: 8px 2px;
+  }
+  .talent {
+    flex: 0 1 56px;
+    width: 56px;
+    height: 56px;
+    min-width: 42px;
+  }
+  .talent img {
+    max-width: 44px;
+    max-height: 44px;
+  }
+  .talent.arrow {
+    flex: 0 0 28px;
+    width: 28px;
+    height: 28px;
+    font-size: 20px;
+  }
+  .team-line {
+    gap: 8px;
+  }
+  .team-line img {
+    max-width: 60px;
+    height: 60px;
+  }
+  .weapons-grid {
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  }
   .weapon.best::before,
   .artifact.best::before,
   .artifact--split.best::before {
-    width: 24px;
-    height: 24px;
-    font-size: 13px;
-    top: 5px;
-    left: 5px;
+    width: 22px;
+    height: 22px;
+    font-size: 12px;
+    top: 4px;
+    left: 4px;
     border-width: 2px;
     box-shadow: 0 3px 8px rgba(var(--accent-rgb), 0.3),
       0 1px 4px rgba(0, 0, 0, 0.12);
   }
 
   .team-line .member.best::before {
-    width: 20px;
-    height: 20px;
-    font-size: 11px;
-    top: 3px;
-    left: 3px;
+    width: 18px;
+    height: 18px;
+    font-size: 10px;
+    top: 2px;
+    left: 2px;
     border-width: 1.5px;
     box-shadow: 0 2px 6px rgba(var(--accent-rgb), 0.35),
       0 1px 3px rgba(0, 0, 0, 0.15);
@@ -803,5 +796,16 @@ body {
   .team-line .member img {
     max-width: 60px;
     height: 60px;
+  }
+  .artifact--split {
+    flex: 0 1 92px;
+    min-width: 76px;
+    max-width: 120px;
+    padding: 6px;
+  }
+  .artifact--split .split-img {
+    inset: 6px;
+    width: calc(100% - 12px);
+    height: calc(100% - 12px);
   }
 }
