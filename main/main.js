@@ -33,9 +33,15 @@ function renderList(arr) {
     listEl.appendChild(li);
     return;
   }
-  arr.forEach((it, i) => {
+
+  const toRender = arr.slice().sort((a, b) =>
+    a.title.localeCompare(b.title, "es", { sensitivity: "base" })
+  );
+
+  toRender.forEach((it, i) => {
     const li = document.createElement("li");
     li.className = "combo-item";
+    if (it.element) li.classList.add("element-" + it.element.toLowerCase());
     li.tabIndex = -1;
     li.setAttribute("role", "option");
     li.dataset.index = i;
@@ -44,7 +50,8 @@ function renderList(arr) {
     )}</div><div class="item-meta">${escapeHtml(it.meta || "")}</div>`;
     li.addEventListener("mousedown", (ev) => {
       ev.preventDefault();
-      selectIndex(i);
+      const origIndex = arr.indexOf(toRender[i]);
+      selectIndex(origIndex === -1 ? i : origIndex);
     });
     listEl.appendChild(li);
   });
@@ -57,24 +64,40 @@ function renderCards(arr) {
       '<div style="color:var(--muted);text-align:center;padding:20px;grid-column:1/-1;">No se han encontrado personajes</div>';
     return;
   }
-  arr.forEach((it, idx) => {
+
+  const toRender = arr.slice().sort((a, b) =>
+    a.title.localeCompare(b.title, "es", { sensitivity: "base" })
+  );
+
+  toRender.forEach((it, idx) => {
     const card = document.createElement("div");
     card.className = "card";
+    if (it.element) {
+      const safeEl = String(it.element).trim().toLowerCase();
+      if (safeEl) card.classList.add("element-" + safeEl);
+    }
+
+    if (it.rarity) card.dataset.rarity = it.rarity;
+
     const img = document.createElement("img");
     img.src =
       it.img && it.img.trim()
         ? it.img
         : "https://via.placeholder.com/100?text=No+img";
     img.alt = it.title;
+
     const name = document.createElement("div");
     name.className = "name";
     name.textContent = it.title;
+
     card.appendChild(img);
     card.appendChild(name);
+
     card.addEventListener("click", () => {
       input.value = it.title;
       loadItem(it);
     });
+
     cardsWrap.appendChild(card);
   });
 }
@@ -95,9 +118,7 @@ function closeDropdown() {
 }
 
 function filterItems(q) {
-  const v = String(q || "")
-    .trim()
-    .toLowerCase();
+  const v = String(q || "").trim().toLowerCase();
   const rarityVal = filterRarity.value;
   const weaponVal = filterWeapon.value;
   const elementVal = filterElement.value;
@@ -107,12 +128,9 @@ function filterItems(q) {
       const inMeta = (it.meta || "").toLowerCase().includes(v);
       if (!inTitle && !inMeta) return false;
     }
-    if (rarityVal && String(it.rarity) !== String(rarityVal))
-      return false;
-    if (weaponVal && (it.weapon || "").toLowerCase() !== weaponVal)
-      return false;
-    if (elementVal && (it.element || "").toLowerCase() !== elementVal)
-      return false;
+    if (rarityVal && String(it.rarity) !== String(rarityVal)) return false;
+    if (weaponVal && (it.weapon || "").toLowerCase() !== weaponVal) return false;
+    if (elementVal && (it.element || "").toLowerCase() !== elementVal) return false;
     return true;
   });
   renderList(filtered);
@@ -241,15 +259,18 @@ function fetchIndex() {
     if (el && el.textContent && el.textContent.trim()) {
       const json = JSON.parse(el.textContent);
       if (Array.isArray(json)) {
-        items = json.map((x) => ({
-          title: String(x.title || "").trim(),
-          file: String(x.file || "").trim(),
-          meta: String(x.meta || "").trim(),
-          rarity: String(x.rarity || "").trim(),
-          weapon: String((x.weapon || "").toLowerCase()).trim(),
-          element: String((x.element || "").toLowerCase()).trim(),
-          img: String(x.img || "").trim(),
-        }));
+        items = json
+          .map((x) => ({
+            title: String(x.title || "").trim(),
+            file: String(x.file || "").trim(),
+            meta: String(x.meta || "").trim(),
+            rarity: String(x.rarity || "").trim(),
+            weapon: String((x.weapon || "").toLowerCase()).trim(),
+            element: String((x.element || "").toLowerCase()).trim(),
+            img: String(x.img || "").trim(),
+          }))
+          .sort((a, b) => a.title.localeCompare(b.title, "es", { sensitivity: "base" }));
+
         filtered = items.slice();
         renderList(items);
         renderCards(items);
@@ -261,5 +282,63 @@ function fetchIndex() {
   }
   showError("No hay índice de tablas embebido.");
 }
+
+(function () {
+  const comboEl = document.getElementById('combo');
+  const inputEl = document.getElementById('comboInput');
+  const comboBtn = document.getElementById('comboBtn');
+  if (!inputEl || !comboEl) return;
+
+  let clearBtn = document.getElementById('clearSearch');
+  if (!clearBtn) {
+    clearBtn = document.createElement('button');
+    clearBtn.id = 'clearSearch';
+    clearBtn.className = 'combo-clear';
+    clearBtn.type = 'button';
+    clearBtn.setAttribute('aria-label', 'Borrar búsqueda');
+    clearBtn.title = 'Borrar búsqueda';
+    clearBtn.textContent = '✕';
+    if (comboBtn && comboBtn.parentNode === comboEl) {
+      comboEl.insertBefore(clearBtn, comboBtn);
+    } else {
+      comboEl.appendChild(clearBtn);
+    }
+  }
+
+  function updateClearVisibility() {
+    const has = inputEl.value && inputEl.value.trim().length > 0;
+    clearBtn.style.display = has ? 'inline-flex' : 'none';
+  }
+
+  inputEl.addEventListener('input', function (e) {
+    updateClearVisibility();
+    if (typeof filterItems === 'function') filterItems(inputEl.value);
+  });
+
+  clearBtn.addEventListener('click', function (e) {
+    e.preventDefault();
+    inputEl.value = '';
+    updateClearVisibility();
+    inputEl.focus();
+    if (typeof filterItems === 'function') filterItems('');
+    if (comboEl && !comboEl.classList.contains('open')) comboEl.classList.add('open');
+  });
+
+  inputEl.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') {
+      if (inputEl.value && inputEl.value.trim().length > 0) {
+        e.preventDefault();
+        inputEl.value = '';
+        updateClearVisibility();
+        if (typeof filterItems === 'function') filterItems('');
+      } else {
+        if (comboEl && comboEl.classList.contains('open')) comboEl.classList.remove('open');
+      }
+    }
+  });
+
+  updateClearVisibility();
+})();
+
 
 fetchIndex();

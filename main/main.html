@@ -2,18 +2,18 @@
 <html lang="es">
   <head>
     <meta charset="utf-8" />
-    <meta name="robots" content="noindex, nofollow">
+    <meta name="robots" content="noindex, nofollow" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>Visualizador de Tablas — Main</title>
+    <title>Visualizador de Builds — Main</title>
     <link rel="stylesheet" href="main.css" />
   </head>
   <body>
     <header class="topbar">
       <div class="topbar-inner">
         <div class="brand">
-          <div class="logo">T</div>
+          <div class="logo">V</div>
           <div class="brand-text">
-            <div class="app-title">Visualizador de Tablas</div>
+            <div class="app-title">Visualizador de Builds</div>
             <div class="app-sub">Guías de personajes</div>
           </div>
         </div>
@@ -30,6 +30,16 @@
               placeholder="Buscar personaje..."
               autocomplete="off"
             />
+            <button
+              id="clearSearch"
+              class="combo-clear"
+              type="button"
+              aria-label="Borrar búsqueda"
+              title="Borrar búsqueda"
+              style="display: none"
+            >
+              ✕
+            </button>
             <button id="comboBtn" class="combo-btn" aria-label="Abrir lista">
               ▾
             </button>
@@ -106,6 +116,24 @@
           "weapon": "lanza",
           "element": "electro",
           "img": "../img/personajes/flins.png"
+        },
+        {
+          "title": "Lauma",
+          "file": "../tablas/lauma.html",
+          "meta": "Ficha principal",
+          "rarity": "5",
+          "weapon": "catalizador",
+          "element": "dendro",
+          "img": "../img/personajes/Lauma.png"
+        },
+        {
+          "title": "Aino",
+          "file": "../tablas/aino.html",
+          "meta": "Ficha principal",
+          "rarity": "4",
+          "weapon": "mandoble",
+          "element": "hydro",
+          "img": "../img/personajes/Aino.png"
         }
       ]
     </script>
