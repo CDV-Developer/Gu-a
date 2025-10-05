@@ -40,66 +40,72 @@
             >
               ✕
             </button>
-            <button id="comboBtn" class="combo-btn" aria-label="Abrir lista">
-              ▾
-            </button>
             <ul id="comboList" class="combo-list" role="listbox"></ul>
           </div>
 
           <div id="filtersWrapper" class="filters-wrapper">
-            <button id="filtersToggle" class="filters-toggle" aria-expanded="true" aria-controls="filterPanel" type="button">Filtros ▾</button>
+            <button
+              id="filtersToggle"
+              class="filters-toggle"
+              aria-expanded="true"
+              aria-controls="filterPanel"
+              type="button"
+            >
+              Filtros ▾
+            </button>
             <div class="filters" id="filterPanel">
-            <label class="filter">
-              <span>Rareza</span>
-              <select id="filterRarity" class="filter-select">
-                <option value="">Todas</option>
-                <option value="5">5★</option>
-                <option value="4">4★</option>
-              </select>
-            </label>
+              <label class="filter">
+                <span>Rareza</span>
+                <select id="filterRarity" class="filter-select">
+                  <option value="">Todas</option>
+                  <option value="5">5★</option>
+                  <option value="4">4★</option>
+                </select>
+              </label>
 
-            <label class="filter">
-              <span>Arma</span>
-              <select id="filterWeapon" class="filter-select">
-                <option value="">Todas</option>
-                <option value="lanza">Lanza</option>
-                <option value="mandoble">Mandoble</option>
-                <option value="catalizador">Catalizador</option>
-                <option value="espada">Espada</option>
-                <option value="arco">Arco</option>
-              </select>
-            </label>
+              <label class="filter">
+                <span>Arma</span>
+                <select id="filterWeapon" class="filter-select">
+                  <option value="">Todas</option>
+                  <option value="lanza">Lanza</option>
+                  <option value="mandoble">Mandoble</option>
+                  <option value="catalizador">Catalizador</option>
+                  <option value="espada">Espada</option>
+                  <option value="arco">Arco</option>
+                </select>
+              </label>
 
-            <label class="filter">
-              <span>Elemento</span>
-              <select id="filterElement" class="filter-select">
-                <option value="">Todos</option>
-                <option value="electro">Electro</option>
-                <option value="hydro">Hydro</option>
-                <option value="pyro">Pyro</option>
-                <option value="anemo">Anemo</option>
-                <option value="dendro">Dendro</option>
-                <option value="geo">Geo</option>
-                <option value="cryo">Cryo</option>
-              </select>
-            </label>
-            
-            <label class="filter">
-              <span>Región</span>
-              <select id="filterRegion" class="filter-select">
-                <option value="">Todas</option>
-                <option value="mondstadt">Mondstadt</option>
-                <option value="liyue">Liyue</option>
-                <option value="inazuma">Inazuma</option>
-                <option value="sumeru">Sumeru</option>
-                <option value="fontaine">Fontaine</option>
-                <option value="natlan">Natlan</option>
-                <option value="nod-krai">Nod Krai</option>
-              </select>
+              <label class="filter">
+                <span>Elemento</span>
+                <select id="filterElement" class="filter-select">
+                  <option value="">Todos</option>
+                  <option value="electro">Electro</option>
+                  <option value="hydro">Hydro</option>
+                  <option value="pyro">Pyro</option>
+                  <option value="anemo">Anemo</option>
+                  <option value="dendro">Dendro</option>
+                  <option value="geo">Geo</option>
+                  <option value="cryo">Cryo</option>
+                </select>
+              </label>
+
+              <label class="filter">
+                <span>Región</span>
+                <select id="filterRegion" class="filter-select">
+                  <option value="">Todas</option>
+                  <option value="mondstadt">Mondstadt</option>
+                  <option value="liyue">Liyue</option>
+                  <option value="inazuma">Inazuma</option>
+                  <option value="sumeru">Sumeru</option>
+                  <option value="fontaine">Fontaine</option>
+                  <option value="natlan">Natlan</option>
+                  <option value="nod-krai">Nod Krai</option>
+                </select>
+              </label>
             </div>
-          </div>
 
-          <div class="cards-wrap" id="cardsWrap"></div>
+            <div class="cards-wrap" id="cardsWrap"></div>
+          </div>
         </div>
       </aside>
 

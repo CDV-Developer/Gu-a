@@ -127,6 +127,9 @@ html,
 body {
   height: 100%;
   margin: 0;
+  padding: 0;
+  width: 100%;
+  overflow-x: hidden;
   background: linear-gradient(135deg, #f6f8fb 0%, #eef3f9 100%);
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, system-ui,
     Roboto, Arial, sans-serif;
@@ -565,6 +568,7 @@ iframe#preview {
   border: 0;
   display: none;
   background: white;
+  max-width: 100%;
 }
 
 .empty {
@@ -729,4 +733,13 @@ iframe#preview {
   .preview {
     min-height: 200px;
   }
+}
+
+/* Prevent media elements from causing horizontal overflow */
+img,
+picture,
+video,
+iframe {
+  max-width: 100%;
+  height: auto;
 }

@@ -64,7 +64,6 @@ function renderCards(arr) {
     card.appendChild(name);
 
     card.addEventListener("click", () => {
-      input.value = it.title;
       loadItem(it);
     });
 
