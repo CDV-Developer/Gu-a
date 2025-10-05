@@ -271,7 +271,11 @@ function fetchIndex() {
   if (!wrapper || !toggle || !panel) return;
 
   const KEY = 'filtersCollapsed_v1';
-  const collapsed = localStorage.getItem(KEY) === '1';
+  const collapsed = (function () {
+    const v = localStorage.getItem(KEY);
+    if (v === null) return true;
+    return v === '1';
+  })();
 
   function applyState(collapsedNow) {
     if (collapsedNow) {
