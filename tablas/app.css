@@ -13,6 +13,89 @@ body[data-element="electro"] {
   --on-accent: #ffffff;
   --white-rgb: 255, 255, 255;
 }
+
+.img-tint {
+  display: inline-block;
+  position: relative;
+  line-height: 0;
+  border-radius: 8px;
+  overflow: hidden;
+}
+.img-tint img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.img-tint img {
+  position: relative;
+  z-index: 1;
+}
+.img-tint::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  mix-blend-mode: multiply;
+  opacity: 0.28;
+  z-index: 2;
+  transition: opacity 160ms ease, background-color 160ms ease;
+}
+.img-tint:hover::after {
+  opacity: 0.42;
+}
+
+.img-tint--electro::after {
+  background: rgba(214, 154, 246, 0.18);
+}
+.img-tint--dendro::after {
+  background: rgba(150, 226, 106, 0.18);
+}
+.img-tint--cryo::after {
+  background: rgba(191, 233, 255, 0.18);
+}
+.img-tint--hydro::after {
+  background: rgba(111, 184, 255, 0.18);
+}
+.img-tint--geo::after {
+  background: rgba(244, 195, 106, 0.18);
+}
+.img-tint--pyro::after {
+  background: rgba(255, 139, 122, 0.18);
+}
+.img-tint--anemo::after {
+  background: rgba(111, 224, 213, 0.18);
+}
+
+.img-tint--strong::after {
+  opacity: 0.3;
+}
+
+.img-tint--electro img {
+  filter: sepia(0.18) saturate(1.5) hue-rotate(250deg) brightness(0.98);
+}
+.img-tint--dendro img {
+  filter: sepia(0.12) saturate(1.4) hue-rotate(80deg) brightness(0.98);
+}
+.img-tint--cryo img {
+  filter: sepia(0.05) saturate(1.2) hue-rotate(200deg) brightness(1.02);
+}
+.img-tint--hydro img {
+  filter: sepia(0.05) saturate(1.5) hue-rotate(200deg) brightness(0.98);
+}
+.img-tint--geo img {
+  filter: sepia(0.45) saturate(1.25) hue-rotate(30deg) brightness(0.98);
+}
+.img-tint--pyro img {
+  filter: sepia(0.45) saturate(1.4) hue-rotate(10deg) brightness(0.98);
+}
+.img-tint--anemo img {
+  filter: sepia(0.05) saturate(1.4) hue-rotate(160deg) brightness(0.98);
+}
+
+.img-tint--no-overlay::after {
+  display: none;
+}
+
 .element-dendro,
 body[data-element="dendro"] {
   --accent: #96e26a;
@@ -210,12 +293,15 @@ body {
   border-radius: 2px;
 }
 .weapons-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  display: flex;
+  flex-wrap: wrap;
   gap: 16px;
   justify-content: center;
   align-items: stretch;
   padding: 0;
+}
+.weapons-grid .weapon {
+  flex: 0 1 150px;
 }
 .weapon {
   background: linear-gradient(135deg, var(--card-bg), var(--panel));
@@ -225,7 +311,7 @@ body {
   text-align: center;
   transition: all 0.3s ease;
   cursor: pointer;
-  min-width: 120px;
+  min-width: 0;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -665,8 +751,13 @@ body {
     padding: 24px 16px;
   }
   .weapons-grid {
-    grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
+    display: flex;
+    flex-wrap: wrap;
     gap: 12px;
+    justify-content: center;
+  }
+  .weapons-grid .weapon {
+    flex: 0 1 110px;
   }
   .artifacts-grid {
     grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
@@ -767,7 +858,13 @@ body {
     height: 60px;
   }
   .weapons-grid {
-    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+  }
+  .weapons-grid .weapon {
+    flex: 0 1 100px;
   }
   .weapon.best::before,
   .artifact.best::before,

@@ -10,6 +10,7 @@ const cardsWrap = document.getElementById("cardsWrap");
 const filterRarity = document.getElementById("filterRarity");
 const filterWeapon = document.getElementById("filterWeapon");
 const filterElement = document.getElementById("filterElement");
+const filterRegion = document.getElementById("filterRegion");
 
 let items = [];
 let filtered = [];
@@ -23,38 +24,7 @@ function escapeHtml(s) {
     .replace(/>/g, "&gt;");
 }
 
-function renderList(arr) {
-  listEl.innerHTML = "";
-  if (!arr || arr.length === 0) {
-    const li = document.createElement("li");
-    li.className = "combo-item no-match";
-    li.textContent = "No hay coincidencias";
-    li.setAttribute("aria-disabled", "true");
-    listEl.appendChild(li);
-    return;
-  }
-
-  const toRender = arr.slice().sort((a, b) =>
-    a.title.localeCompare(b.title, "es", { sensitivity: "base" })
-  );
-
-  toRender.forEach((it, i) => {
-    const li = document.createElement("li");
-    li.className = "combo-item";
-    if (it.element) li.classList.add("element-" + it.element.toLowerCase());
-    li.tabIndex = -1;
-    li.setAttribute("role", "option");
-    li.dataset.index = i;
-    li.innerHTML = `<div class="item-title">${escapeHtml(
-      it.title
-    )}</div><div class="item-meta">${escapeHtml(it.meta || "")}</div>`;
-    li.addEventListener("mousedown", (ev) => {
-      ev.preventDefault();
-      const origIndex = arr.indexOf(toRender[i]);
-      selectIndex(origIndex === -1 ? i : origIndex);
-    });
-    listEl.appendChild(li);
-  });
+function renderList() {
 }
 
 function renderCards(arr) {
@@ -102,26 +72,12 @@ function renderCards(arr) {
   });
 }
 
-function openDropdown() {
-  filtered = items.slice();
-  renderList(filtered);
-  combo.classList.add("open");
-  listEl.scrollTop = 0;
-  open = true;
-  focusedIndex = -1;
-}
-
-function closeDropdown() {
-  combo.classList.remove("open");
-  open = false;
-  focusedIndex = -1;
-}
-
 function filterItems(q) {
   const v = String(q || "").trim().toLowerCase();
   const rarityVal = filterRarity.value;
   const weaponVal = filterWeapon.value;
   const elementVal = filterElement.value;
+  const regionVal = filterRegion ? filterRegion.value : "";
   filtered = items.filter((it) => {
     if (v) {
       const inTitle = it.title.toLowerCase().includes(v);
@@ -131,8 +87,10 @@ function filterItems(q) {
     if (rarityVal && String(it.rarity) !== String(rarityVal)) return false;
     if (weaponVal && (it.weapon || "").toLowerCase() !== weaponVal) return false;
     if (elementVal && (it.element || "").toLowerCase() !== elementVal) return false;
+    if (regionVal && (it.region || "").toLowerCase() !== regionVal) return false;
     return true;
   });
+  filtered.sort((a, b) => a.title.localeCompare(b.title, 'es', { sensitivity: 'base' }));
   renderList(filtered);
   renderCards(filtered);
   if (filtered.length > 0) {
@@ -167,7 +125,12 @@ function selectIndex(idx) {
 }
 
 function loadItem(it) {
-  preview.src = it.file;
+  if (it.html) {
+    preview.removeAttribute('src');
+    preview.srcdoc = it.html;
+  } else {
+    preview.src = it.file;
+  }
   currentTitle.textContent = it.title;
   meta.textContent = it.meta || "";
   empty.style.display = "none";
@@ -176,70 +139,32 @@ function loadItem(it) {
 
 input.addEventListener("input", (e) => {
   filterItems(e.target.value);
-  if (!open) {
-    combo.classList.add("open");
-    open = true;
-  }
 });
 
 input.addEventListener("focus", () => {
   filterItems(input.value);
-  combo.classList.add("open");
-  open = true;
 });
 
-btn.addEventListener("click", () => {
-  if (open) closeDropdown();
-  else {
-    filterItems("");
-    combo.classList.add("open");
-    open = true;
-    input.focus();
-  }
-});
+if (btn) btn.addEventListener('click', (e) => { e.preventDefault(); input.focus(); });
 
 input.addEventListener("keydown", (e) => {
   const key = e.key;
-  if (key === "ArrowDown") {
+  if (key === "Enter") {
     e.preventDefault();
-    if (!open) {
-      filterItems(input.value);
-      combo.classList.add("open");
-      open = true;
-    }
-    focusedIndex = Math.min(
-      filtered.length - 1,
-      focusedIndex === -1 ? 0 : focusedIndex + 1
-    );
-    focusItem(focusedIndex);
-  } else if (key === "ArrowUp") {
-    e.preventDefault();
-    if (!open) {
-      filterItems(input.value);
-      combo.classList.add("open");
-      open = true;
-    }
-    focusedIndex = Math.max(0, focusedIndex - 1);
-    focusItem(focusedIndex);
-  } else if (key === "Enter") {
-    e.preventDefault();
-    if (open && focusedIndex >= 0) selectIndex(focusedIndex);
-    else {
-      const match = items.find((it) => it.title === input.value);
-      if (match) loadItem(match);
+    if (filtered && filtered.length > 0) {
+      const exact = filtered.find((it) => it.title === input.value);
+      loadItem(exact || filtered[0]);
     }
   } else if (key === "Escape") {
-    closeDropdown();
+    input.value = "";
+    filterItems("");
   }
-});
-
-document.addEventListener("click", (e) => {
-  if (!combo.contains(e.target)) closeDropdown();
 });
 
 filterRarity.addEventListener("change", () => filterItems(input.value));
 filterWeapon.addEventListener("change", () => filterItems(input.value));
 filterElement.addEventListener("change", () => filterItems(input.value));
+if (filterRegion) filterRegion.addEventListener("change", () => filterItems(input.value));
 
 function showError(msg) {
   listEl.innerHTML = "";
@@ -267,12 +192,12 @@ function fetchIndex() {
             rarity: String(x.rarity || "").trim(),
             weapon: String((x.weapon || "").toLowerCase()).trim(),
             element: String((x.element || "").toLowerCase()).trim(),
+            region: String((x.region || "").toLowerCase()).trim(),
             img: String(x.img || "").trim(),
           }))
           .sort((a, b) => a.title.localeCompare(b.title, "es", { sensitivity: "base" }));
 
         filtered = items.slice();
-        renderList(items);
         renderCards(items);
         return;
       }
@@ -338,6 +263,38 @@ function fetchIndex() {
   });
 
   updateClearVisibility();
+})();
+
+; (function () {
+  const wrapper = document.getElementById('filtersWrapper');
+  const toggle = document.getElementById('filtersToggle');
+  const panel = document.getElementById('filterPanel');
+  if (!wrapper || !toggle || !panel) return;
+
+  const KEY = 'filtersCollapsed_v1';
+  const collapsed = localStorage.getItem(KEY) === '1';
+
+  function applyState(collapsedNow) {
+    if (collapsedNow) {
+      wrapper.classList.add('filters-collapsed');
+      wrapper.classList.remove('filters-expanded');
+      toggle.setAttribute('aria-expanded', 'false');
+      toggle.textContent = 'Filtros ▸';
+    } else {
+      wrapper.classList.remove('filters-collapsed');
+      wrapper.classList.add('filters-expanded');
+      toggle.setAttribute('aria-expanded', 'true');
+      toggle.textContent = 'Filtros ▾';
+    }
+  }
+
+  applyState(collapsed);
+
+  toggle.addEventListener('click', function () {
+    const now = !wrapper.classList.contains('filters-collapsed');
+    localStorage.setItem(KEY, now ? '1' : '0');
+    applyState(now);
+  });
 })();
 
 

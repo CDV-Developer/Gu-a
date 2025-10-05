@@ -46,7 +46,9 @@
             <ul id="comboList" class="combo-list" role="listbox"></ul>
           </div>
 
-          <div class="filters">
+          <div id="filtersWrapper" class="filters-wrapper">
+            <button id="filtersToggle" class="filters-toggle" aria-expanded="true" aria-controls="filterPanel" type="button">Filtros ▾</button>
+            <div class="filters" id="filterPanel">
             <label class="filter">
               <span>Rareza</span>
               <select id="filterRarity" class="filter-select">
@@ -81,6 +83,20 @@
                 <option value="cryo">Cryo</option>
               </select>
             </label>
+            
+            <label class="filter">
+              <span>Región</span>
+              <select id="filterRegion" class="filter-select">
+                <option value="">Todas</option>
+                <option value="mondstadt">Mondstadt</option>
+                <option value="liyue">Liyue</option>
+                <option value="inazuma">Inazuma</option>
+                <option value="sumeru">Sumeru</option>
+                <option value="fontaine">Fontaine</option>
+                <option value="natlan">Natlan</option>
+                <option value="nod-krai">Nod Krai</option>
+              </select>
+            </div>
           </div>
 
           <div class="cards-wrap" id="cardsWrap"></div>
@@ -115,6 +131,7 @@
           "rarity": "5",
           "weapon": "lanza",
           "element": "electro",
+          "region": "nod-krai",
           "img": "../img/personajes/flins.png"
         },
         {
@@ -124,6 +141,7 @@
           "rarity": "5",
           "weapon": "catalizador",
           "element": "dendro",
+          "region": "nod-krai",
           "img": "../img/personajes/lauma.png"
         },
         {
@@ -133,7 +151,48 @@
           "rarity": "4",
           "weapon": "mandoble",
           "element": "hydro",
+          "region": "nod-krai",
           "img": "../img/personajes/aino.png"
+        },
+        {
+          "title": "Chasca",
+          "file": "../tablas/chasca.html",
+          "meta": "Ficha principal",
+          "rarity": "5",
+          "weapon": "arco",
+          "element": "anemo",
+          "region": "natlan",
+          "img": "../img/personajes/chasca.png"
+        },
+        {
+          "title": "Dahlia",
+          "file": "../tablas/dahlia.html",
+          "meta": "Ficha principal",
+          "rarity": "4",
+          "weapon": "espada",
+          "element": "hydro",
+          "region": "mondstadt",
+          "img": "../img/personajes/dahlia.png"
+        },
+        {
+          "title": "Dori",
+          "file": "../tablas/dori.html",
+          "meta": "Ficha principal",
+          "rarity": "4",
+          "weapon": "mandoble",
+          "element": "electro",
+          "region": "sumeru",
+          "img": "../img/personajes/dori.png"
+        },
+        {
+          "title": "Scara",
+          "file": "../tablas/scara.html",
+          "meta": "Ficha principal",
+          "rarity": "5",
+          "weapon": "catalizador",
+          "element": "anemo",
+          "region": "sumeru",
+          "img": "../img/personajes/scara.png"
         }
       ]
     </script>
