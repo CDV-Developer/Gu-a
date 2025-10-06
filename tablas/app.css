@@ -14,6 +14,61 @@ body[data-element="electro"] {
   --white-rgb: 255, 255, 255;
 }
 
+.team-row .team-grid {
+  gap: clamp(4px, 1vw, 8px);
+  align-items: center;
+}
+.teams-section .team-line {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: clamp(8px, 1vw, 12px);
+  align-items: center;
+  width: 100%;
+}
+.teams-section .team-row .team-grid .team-line:has(.member.best),
+.teams-section .team-row .team-grid .team-line.has-best {
+  gap: clamp(8px, 2vw, 12px);
+  align-items: start;
+}
+
+@media (min-width: 1024px) {
+  .teams-section .team-line {
+    grid-template-columns: repeat(7, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .team-row .team-grid {
+    gap: 8px;
+    align-items: center;
+  }
+
+  .teams-section .team-line {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+  }
+
+  .teams-section .team-row .team-grid .team-line:has(.member.best),
+  .teams-section .team-row .team-grid .team-line.has-best {
+    gap: 10px;
+    align-items: start;
+  }
+}
+
+@media (max-width: 400px) {
+  .teams-section .team-row .team-grid .team-line {
+    gap: 6px;
+    align-items: center;
+  }
+
+  .teams-section .team-row .team-grid .team-line:has(.member.best),
+  .teams-section .team-row .team-grid .team-line.has-best {
+    gap: 8px;
+    align-items: start;
+  }
+}
+
 .element-dendro,
 body[data-element="dendro"] {
   --accent: #96e26a;
@@ -139,7 +194,7 @@ body[data-element="anemo"] {
 }
 
 .img-tint--anemo::after {
-  background: rgba(111, 224, 213, 0.18);
+  background: rgba(0, 236, 165, 0.18);
 }
 
 .img-tint--strong::after {
@@ -664,19 +719,42 @@ body {
 }
 
 .team-line {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: clamp(8px, 2vw, 12px);
-  justify-items: center;
-  align-items: start;
+  /* Use flex so items are naturally centered regardless of how many
+     members are present (1..4). Flex preserves the intrinsic size of
+     each .member and allows justify-content:center to center the group. */
+  display: flex;
+  justify-content: center;
+  align-items: center; /* equal space above/below by default */
+  gap: clamp(4px, 1vw, 8px);
   width: 100%;
+  flex-wrap: nowrap;
+}
+
+/* Teams that contain a .member.best need extra spacing and top alignment
+   so the "★" badge doesn't overlap nearby items. Use :has() when available. */
+.team-line:has(.member.best) {
+  gap: clamp(8px, 2vw, 12px);
+  align-items: start;
+}
+
+/* Fallback for browsers that don't support :has() - rely on JS-added classes */
+.team-line.no-best {
+  gap: clamp(4px, 1vw, 8px);
+  align-items: center;
+}
+
+.team-line.has-best {
+  gap: clamp(8px, 2vw, 12px);
+  align-items: start;
 }
 
 .team-line .member {
   position: relative;
   display: block;
-  width: 100%;
-  max-width: clamp(60px, 12vw, 88px);
+  /* Keep members at their natural size and prevent stretching so the
+     whole group can be centered. */
+  flex: 0 0 auto;
+  width: clamp(60px, 12vw, 88px);
   aspect-ratio: 1;
 }
 
@@ -735,8 +813,6 @@ body {
   transition: transform 0.3s ease;
 }
 
-/* In case a theme variable gets overridden or missing, ensure the star remains visible
-   and not rendered in an unexpected dark color. This rule is intentionally specific. */
 .team-line .member.best::before,
 .weapon.best::before,
 .artifact.best::before,
@@ -852,5 +928,36 @@ body {
     font-size: clamp(9px, 3.5vw, 12px);
     top: clamp(-5px, -1.6vw, -4px);
     left: clamp(-5px, -1.6vw, -4px);
+  }
+}
+
+.artifacts-grid .artifact.has-badge {
+  position: relative;
+  overflow: visible;
+}
+
+.artifacts-grid .artifact .artifact-badge {
+  position: absolute;
+  right: -10px;
+  bottom: -10px;
+  width: clamp(36px, 6vw, 48px);
+  height: clamp(36px, 6vw, 48px);
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid var(--accent);
+  box-shadow: 0 6px 18px rgba(var(--accent-rgb), 0.18);
+  background: none;
+  z-index: 20;
+  pointer-events: none;
+  transform: translate(0, 0);
+}
+
+@media (max-width: 768px) {
+  .artifacts-grid .artifact .artifact-badge {
+    right: -8px;
+    bottom: -8px;
+    width: clamp(30px, 8vw, 36px);
+    height: clamp(30px, 8vw, 36px);
+    border-width: 2px;
   }
 }

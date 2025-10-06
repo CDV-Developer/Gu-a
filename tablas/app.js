@@ -17,23 +17,32 @@
         var teamRows = card.querySelectorAll(".team-row");
         teamRows.forEach(function (teamRow) {
             var firstTeamLine = teamRow.querySelector(".team-line");
-            if (firstTeamLine) {
-                var members = firstTeamLine.querySelectorAll(".member, img");
-                if (members.length > 0) {
-                    members.forEach(function (member) {
-                        if (member.classList.contains("member")) {
-                            if (!member.classList.contains("best")) {
-                                member.classList.add("best");
-                            }
-                        } else if (member.tagName === "IMG") {
-                            var wrapper = document.createElement("div");
-                            wrapper.className = "member best";
-                            member.parentNode.insertBefore(wrapper, member);
-                            wrapper.appendChild(member);
-                        }
-                    });
-                }
-            }
+            if (!firstTeamLine) return;
+
+            firstTeamLine.querySelectorAll('img').forEach(function (img) {
+                if (img.parentElement && img.parentElement.classList.contains('member')) return;
+
+                var wrapper = document.createElement('div');
+                wrapper.className = 'member';
+                img.parentNode.insertBefore(wrapper, img);
+                wrapper.appendChild(img);
+            });
         });
+    });
+
+    try {
+        var supportsHas = CSS.supports('selector(:has(*))');
+    } catch (e) {
+        var supportsHas = false;
+    }
+
+    document.querySelectorAll('.team-line').forEach(function (line) {
+        if (line.querySelector('.member.best')) {
+            line.classList.add('has-best');
+            line.classList.remove('no-best');
+        } else {
+            line.classList.add('no-best');
+            line.classList.remove('has-best');
+        }
     });
 })();
