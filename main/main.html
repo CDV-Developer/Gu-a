@@ -11,7 +11,9 @@
     <header class="topbar">
       <div class="topbar-inner">
         <div class="brand">
-          <div class="logo">V</div>
+          <div class="logo">
+            <img src="../img/logo.png" alt="Visualizador de Builds" />
+          </div>
           <div class="brand-text">
             <div class="app-title">Visualizador de Builds</div>
             <div class="app-sub">Guías de personajes</div>
@@ -100,6 +102,7 @@
                   <option value="fontaine">Fontaine</option>
                   <option value="natlan">Natlan</option>
                   <option value="nod-krai">Nod Krai</option>
+                  <option value="narnia">Narnia</option>
                 </select>
               </label>
             </div>
@@ -113,6 +116,7 @@
         <div class="preview-header">
           <h2 id="currentTitle">Selecciona un personaje</h2>
           <div id="meta" class="meta">—</div>
+          <div id="buildButtons" class="build-buttons" aria-hidden="true"></div>
         </div>
         <div class="preview">
           <iframe
@@ -133,7 +137,7 @@
         {
           "title": "Flins",
           "file": "../tablas/flins.html",
-          "meta": "Ficha principal",
+          "builds": ["Main dps"],
           "rarity": "5",
           "weapon": "lanza",
           "element": "electro",
@@ -143,7 +147,7 @@
         {
           "title": "Lauma",
           "file": "../tablas/lauma.html",
-          "meta": "Ficha principal",
+          "builds": ["Soporte"],
           "rarity": "5",
           "weapon": "catalizador",
           "element": "dendro",
@@ -153,7 +157,7 @@
         {
           "title": "Aino",
           "file": "../tablas/aino.html",
-          "meta": "Ficha principal",
+          "builds": ["Soporte"],
           "rarity": "4",
           "weapon": "mandoble",
           "element": "hydro",
@@ -163,7 +167,7 @@
         {
           "title": "Chasca",
           "file": "../tablas/chasca.html",
-          "meta": "Ficha principal",
+          "builds": ["Main dps"],
           "rarity": "5",
           "weapon": "arco",
           "element": "anemo",
@@ -173,7 +177,7 @@
         {
           "title": "Dahlia",
           "file": "../tablas/dahlia.html",
-          "meta": "Ficha principal",
+          "builds": ["Soporte"],
           "rarity": "4",
           "weapon": "espada",
           "element": "hydro",
@@ -183,7 +187,7 @@
         {
           "title": "Dori",
           "file": "../tablas/dori.html",
-          "meta": "Ficha principal",
+          "builds": ["Soporte/Healer"],
           "rarity": "4",
           "weapon": "mandoble",
           "element": "electro",
@@ -193,7 +197,7 @@
         {
           "title": "Scara",
           "file": "../tablas/scara.html",
-          "meta": "Ficha principal",
+          "builds": ["Main dps"],
           "rarity": "5",
           "weapon": "catalizador",
           "element": "anemo",
@@ -203,7 +207,7 @@
         {
           "title": "Sacarosa",
           "file": "../tablas/sacarosa.html",
-          "meta": "Ficha principal",
+          "builds": ["Soporte"],
           "rarity": "4",
           "weapon": "catalizador",
           "element": "anemo",
@@ -213,12 +217,52 @@
         {
           "title": "Ororon",
           "file": "../tablas/ororon.html",
-          "meta": "Ficha principal",
+          "builds": ["Soporte/Subdps"],
           "rarity": "4",
           "weapon": "arco",
           "element": "electro",
           "region": "natlan",
           "img": "../img/personajes/ororon.png"
+        },
+        {
+          "title": "Nefer",
+          "file": "../tablas/nefer.html",
+          "builds": ["Main dps"],
+          "rarity": "5",
+          "weapon": "catalizador",
+          "element": "dendro",
+          "region": "nod-krai",
+          "img": "../img/personajes/nefer.png"
+        },
+        {
+          "title": "Ineffa",
+          "file": "../tablas/ineffa.html",
+          "builds": ["Soporte/Subdps"],
+          "rarity": "5",
+          "weapon": "lanza",
+          "element": "electro",
+          "region": "nod-krai",
+          "img": "../img/personajes/ineffa.png"
+        },
+        {
+          "title": "Skirk",
+          "file": "../tablas/skirk.html",
+          "builds": ["Main dps (normales)", "Main dps (nuke)"],
+          "rarity": "5",
+          "weapon": "espada",
+          "element": "cryo",
+          "region": "narnia",
+          "img": "../img/personajes/skirk.png"
+        },
+        {
+          "title": "Escoffier",
+          "file": "../tablas/esco.html",
+          "builds": ["Soporte/Subdps"],
+          "rarity": "5",
+          "weapon": "lanza",
+          "element": "cryo",
+          "region": "fontaine",
+          "img": "../img/personajes/esco.png"
         }
       ]
     </script>

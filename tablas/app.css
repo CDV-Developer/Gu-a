@@ -735,6 +735,15 @@ body {
   transition: transform 0.3s ease;
 }
 
+/* In case a theme variable gets overridden or missing, ensure the star remains visible
+   and not rendered in an unexpected dark color. This rule is intentionally specific. */
+.team-line .member.best::before,
+.weapon.best::before,
+.artifact.best::before,
+.artifact--split.best::before {
+  color: #fff !important;
+}
+
 .team-line .member.best:hover::before,
 .weapon.best:hover::before,
 .artifact.best:hover::before,

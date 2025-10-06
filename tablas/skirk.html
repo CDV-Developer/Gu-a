@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Skirk - Ficha</title>
+
+    <link rel="stylesheet" href="app.css" />
+  </head>
+  <body class="element-cryo">
+    <div class="container">
+      <!-- Build 0: Main dps (normales) -->
+      <div class="build" data-build-index="0">
+        <div class="card">
+          <div class="header">
+            <h1>Skirk(Normales)</h1>
+          </div>
+
+          <div class="portrait-section">
+            <img
+              class="portrait"
+              src="../img/personajes/skirk.png"
+              alt="Portrait"
+            />
+          </div>
+
+          <div class="section">
+            <div class="section-title">Armas</div>
+            <div class="weapons-grid">
+              <div class="weapon">
+                <img src="../img/armas/skirk.png" alt="W1" />
+                <div class="wname">Ful­gor Ce­rú­le­o</div>
+              </div>
+              <div class="weapon">
+                <img src="../img/armas/ayaka.png" alt="W2" />
+                <div class="wname">Re­fle­jo de las Ti­nie­blas</div>
+              </div>
+              <div class="weapon">
+                <img src="../img/armas/ayato.png" alt="W2" />
+                <div class="wname">Lu­na On­du­lan­te de Fut­su</div>
+              </div>
+              <div class="weapon">
+                <img src="../img/armas/chiori.png" alt="W2" />
+                <div class="wname">Cor­ta­te­lo­nes de U­ra­ku­sa­i</div>
+              </div>
+              <div class="weapon">
+                <img src="../img/armas/calamidadesu.png" alt="W3" />
+                <div class="wname">Ca­la­mi­dad de Es­hu</div>
+              </div>
+              <div class="weapon">
+                <img src="../img/armas/forjafontaineespa.png" alt="W3" />
+                <div class="wname pd-top">Ré­quiem A­bi­sal</div>
+              </div>
+            </div>
+            <div class="stats-secundarias" aria-labelledby="notes-heading">
+              <div
+                class="notes-content"
+                style="
+                  font-size: 14px;
+                  color: var(--title-text);
+                  line-height: 1.5;
+                "
+              >
+                Calamidad de eshu solo funciona si hay un escudo en el equipo.
+              </div>
+            </div>
+          </div>
+
+          <div class="section">
+            <div class="section-title">Talentos</div>
+            <div class="talents" role="list">
+              <div class="talent" role="listitem">
+                <img src="../img/talentos/skirk/e.png" alt="T1" />
+              </div>
+              <div class="talent arrow" aria-hidden="true">>></div>
+              <div class="talent" role="listitem">
+                <img src="../img/talentos/skirk/q.png" alt="T2" />
+              </div>
+              <div class="talent arrow" aria-hidden="true">=</div>
+              <div class="talent" role="listitem">
+                <img src="../img/talentos/aa/espada.png" alt="T3" />
+              </div>
+            </div>
+            <div class="stats-secundarias" aria-labelledby="notes-heading">
+              <div
+                class="notes-content"
+                style="
+                  font-size: 14px;
+                  color: var(--title-text);
+                  line-height: 1.5;
+                "
+              >
+                Los básicos y la ulti se pueden dejar sin subir.
+              </div>
+            </div>
+          </div>
+
+          <div class="section">
+            <div class="section-title">Artefactos</div>
+            <div class="artifacts-grid">
+              <div class="artifact">
+                <img src="../img/artefactos/abisal.png" alt="A1" />
+              </div>
+              <div
+                class="artifact artifact--split"
+                role="group"
+                aria-label="Artifact A y Artifact B"
+              >
+                <img
+                  class="split-img top"
+                  src="../img/artefactos/gladiador.png"
+                  alt="Artefacto A"
+                />
+                <img
+                  class="split-img bottom"
+                  src="../img/artefactos/remi.png"
+                  alt="Artefacto B"
+                />
+                <div class="split-label top">A</div>
+                <div class="split-label bottom">B</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="stats-section">
+          <div class="stats-title">Estadísticas</div>
+          <div class="stats-wrap">
+            <div class="principales-label">Principales</div>
+            <div class="principales-grid">
+              <div class="slot">
+                <div class="slot-sub">Reloj</div>
+                <div class="slot-main">Ataque</div>
+              </div>
+              <div class="slot">
+                <div class="slot-sub">Cáliz</div>
+                <div class="slot-main">Ataque/Bono cryo</div>
+              </div>
+              <div class="slot">
+                <div class="slot-sub">Corona</div>
+                <div class="slot-main">Prob/Daño crítico</div>
+              </div>
+            </div>
+
+            <div class="principales-label">Secundarias</div>
+            <div class="stats-secundarias">
+              Prob. crítico ≥ Daño crítico > ATQ%
+            </div>
+
+            <div class="stats-total-title">
+              Total de estadísticas en reposo (sin buffs de equipo)
+            </div>
+            <ul class="stats-list">
+              <li>70-85 de prob</li>
+              <li>0 de recarga</li>
+              <li>El máximo de daño crítico que se pueda</li>
+              <li>El máximo de ataque que se pueda</li>
+            </ul>
+          </div>
+
+          <div class="teams-section">
+            <div class="teams-title">Equipos</div>
+
+            <div class="team-row">
+              <div class="team-type">Hypercarry</div>
+              <div class="team-grid">
+                <div class="team-line">
+                  <div class="member best">
+                    <img src="../img/personajes/skirk.png" alt="C1" />
+                  </div>
+                  <div class="member best">
+                    <img src="../img/personajes/furina.png" alt="C2" />
+                  </div>
+                  <div class="member best">
+                    <img src="../img/personajes/esco.png" alt="C3" />
+                  </div>
+                  <div class="member best">
+                    <img src="../img/personajes/yelan.png" alt="C4" />
+                  </div>
+                </div>
+              </div>
+              <div class="team-variants">
+                Variantes con cualquier subdps/soporte hydro o cryo.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Build 1: Main dps (nuker) -->
+      <div class="build" data-build-index="1" style="display: none">
+        <div class="card">
+          <div class="header">
+            <h1>Skirk(Nuker)</h1>
+          </div>
+
+          <div class="portrait-section">
+            <img
+              class="portrait"
+              src="../img/personajes/skirk.png"
+              alt="Portrait"
+            />
+          </div>
+
+          <div class="section">
+            <div class="section-title">Armas</div>
+            <div class="weapons-grid">
+              <div class="weapon">
+                <img src="../img/armas/skirk.png" alt="W1" />
+                <div class="wname">Ful­gor Ce­rú­le­o</div>
+              </div>
+              <div class="weapon">
+                <img src="../img/armas/skirknuke.png" alt="W2" />
+                <div class="wname">Al­ba de la Te­je­lu­nas</div>
+              </div>
+              <div class="weapon">
+                <img src="../img/armas/colmillolupino.png" alt="W2" />
+                <div class="wname">Col­mi­llo Lu­pi­no</div>
+              </div>
+              <div class="weapon">
+                <img src="../img/armas/forjafontaineespa.png" alt="W2" />
+                <div class="wname">Ré­quiem A­bi­sal</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="section">
+            <div class="section-title">Talentos</div>
+            <div class="talents" role="list">
+              <div class="talent" role="listitem">
+                <img src="../img/talentos/skirk/q.png" alt="T1" />
+              </div>
+              <div class="talent arrow" aria-hidden="true">>></div>
+              <div class="talent" role="listitem">
+                <img src="../img/talentos/skirk/e.png" alt="T2" />
+              </div>
+              <div class="talent arrow" aria-hidden="true">=</div>
+              <div class="talent" role="listitem">
+                <img src="../img/talentos/aa/espada.png" alt="T3" />
+              </div>
+            </div>
+            <div class="stats-secundarias" aria-labelledby="notes-heading">
+              <div
+                class="notes-content"
+                style="
+                  font-size: 14px;
+                  color: var(--title-text);
+                  line-height: 1.5;
+                "
+              >
+                Los básicos y la elemental se pueden dejar sin subir.
+              </div>
+            </div>
+          </div>
+
+          <div class="section">
+            <div class="section-title">Artefactos</div>
+            <div class="artifacts-grid">
+              <div class="artifact">
+                <img src="../img/artefactos/abisal.png" alt="A1" />
+              </div>
+              <div
+                class="artifact artifact--split"
+                role="group"
+                aria-label="Artifact A y Artifact B"
+              >
+                <img
+                  class="split-img top"
+                  src="../img/artefactos/gladiador.png"
+                  alt="Artefacto A"
+                />
+                <img
+                  class="split-img bottom"
+                  src="../img/artefactos/remi.png"
+                  alt="Artefacto B"
+                />
+                <div class="split-label top">A</div>
+                <div class="split-label bottom">B</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="stats-section">
+          <div class="stats-title">Estadísticas</div>
+          <div class="stats-wrap">
+            <div class="principales-label">Principales</div>
+            <div class="principales-grid">
+              <div class="slot">
+                <div class="slot-sub">Reloj</div>
+                <div class="slot-main">Ataque</div>
+              </div>
+              <div class="slot">
+                <div class="slot-sub">Cáliz</div>
+                <div class="slot-main">Ataque/Bono cryo</div>
+              </div>
+              <div class="slot">
+                <div class="slot-sub">Corona</div>
+                <div class="slot-main">Prob/Daño crítico</div>
+              </div>
+            </div>
+
+            <div class="principales-label">Secundarias</div>
+            <div class="stats-secundarias">
+              Prob. crítico ≥ Daño crítico > ATQ%
+            </div>
+
+            <div class="stats-total-title">
+              Total de estadísticas en reposo (sin buffs de equipo)
+            </div>
+            <ul class="stats-list">
+              <li>70-85 de prob</li>
+              <li>0 de recarga</li>
+              <li>El máximo de daño crítico que se pueda</li>
+              <li>El máximo de ataque que se pueda</li>
+            </ul>
+          </div>
+
+          <div class="teams-section">
+            <div class="teams-title">Equipos</div>
+
+            <div class="team-row">
+              <div class="team-type">Doble dps</div>
+              <div class="team-grid">
+                <div class="team-line">
+                  <div class="member best">
+                    <img src="../img/personajes/skirk.png" alt="C1" />
+                  </div>
+                  <div class="member best">
+                    <img src="../img/personajes/neu.png" alt="C2" />
+                  </div>
+                  <div class="member best">
+                    <img src="../img/personajes/furina.png" alt="C3" />
+                  </div>
+                  <div class="member best">
+                    <img src="../img/personajes/esco.png" alt="C4" />
+                  </div>
+                </div>
+              </div>
+              <div class="team-variants">
+                Variantes con cualquier dps flexible como Neuvillette, arle,
+                mualani, ayaka...
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      (function () {
+        const builds = ["Main dps (normales)", "Main dps (nuker)"];
+        function postBuilds() {
+          if (window.parent && window.parent !== window) {
+            window.parent.postMessage({ type: "builds", builds }, "*");
+          }
+        }
+
+        function showBuild(index) {
+          const nodes = document.querySelectorAll(".build");
+          nodes.forEach(
+            (n) =>
+              (n.style.display = n.dataset.buildIndex == index ? "" : "none")
+          );
+        }
+
+        window.addEventListener("message", (ev) => {
+          const d = ev.data || {};
+          if (d && d.type === "show-build") {
+            showBuild(d.index);
+          }
+        });
+
+        window.addEventListener("load", function () {
+          postBuilds();
+          showBuild(0);
+        });
+      })();
+    </script>
+    <script src="app.js"></script>
+  </body>
+</html>

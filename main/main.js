@@ -6,6 +6,7 @@ const preview = document.getElementById("preview");
 const currentTitle = document.getElementById("currentTitle");
 const meta = document.getElementById("meta");
 const empty = document.getElementById("empty");
+const buildButtons = document.getElementById('buildButtons');
 const cardsWrap = document.getElementById("cardsWrap");
 const filterRarity = document.getElementById("filterRarity");
 const filterWeapon = document.getElementById("filterWeapon");
@@ -119,8 +120,18 @@ function selectIndex(idx) {
   if (!it) return;
   input.value = it.title;
   loadItem(it);
-  closeDropdown();
+  try {
+    closeDropdown();
+  } catch (e) {
+    const comboEl = document.getElementById('combo');
+    if (comboEl) comboEl.classList.remove('open');
+  }
   input.blur();
+}
+
+function closeDropdown() {
+  const comboEl = document.getElementById('combo');
+  if (comboEl) comboEl.classList.remove('open');
 }
 
 function loadItem(it) {
@@ -134,6 +145,50 @@ function loadItem(it) {
   meta.textContent = it.meta || "";
   empty.style.display = "none";
   preview.style.display = "block";
+
+  if (buildButtons) {
+    buildButtons.innerHTML = '';
+    buildButtons.setAttribute('aria-hidden', 'true');
+  }
+
+  if (it.builds && Array.isArray(it.builds) && it.builds.length > 0) {
+    renderBuildButtons(it.builds);
+    preview.addEventListener('load', function onLoad() {
+      if (preview && preview.contentWindow) {
+        preview.contentWindow.postMessage({ type: 'show-build', index: 0 }, '*');
+      }
+      preview.removeEventListener('load', onLoad);
+    });
+  }
+}
+
+window.addEventListener('message', (ev) => {
+  const data = ev.data || {};
+  if (!data || typeof data !== 'object') return;
+  if (data.type === 'builds' && Array.isArray(data.builds)) {
+    renderBuildButtons(data.builds);
+  }
+});
+
+function renderBuildButtons(list) {
+  if (!buildButtons) return;
+  buildButtons.innerHTML = '';
+  buildButtons.setAttribute('aria-hidden', 'false');
+  list.forEach((label, idx) => {
+    const btn = document.createElement('button');
+    btn.className = 'build-button';
+    btn.type = 'button';
+    btn.textContent = label;
+    btn.addEventListener('click', () => {
+      Array.from(buildButtons.querySelectorAll('.build-button')).forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const msg = { type: 'show-build', index: idx };
+      if (preview && preview.contentWindow) preview.contentWindow.postMessage(msg, '*');
+    });
+    buildButtons.appendChild(btn);
+  });
+  const first = buildButtons.querySelector('.build-button');
+  if (first) first.classList.add('active');
 }
 
 input.addEventListener("input", (e) => {
@@ -193,6 +248,11 @@ function fetchIndex() {
             element: String((x.element || "").toLowerCase()).trim(),
             region: String((x.region || "").toLowerCase()).trim(),
             img: String(x.img || "").trim(),
+            builds: Array.isArray(x.builds)
+              ? x.builds.map((b) => String(b))
+              : x.meta
+                ? [String(x.meta).trim()]
+                : [],
           }))
           .sort((a, b) => a.title.localeCompare(b.title, "es", { sensitivity: "base" }));
 
