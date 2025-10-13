@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Mavuika - Ficha</title>
+
+    <link rel="stylesheet" href="app.css" />
+  </head>
+  <body class="element-pyro">
+    <div class="container">
+      <!-- Build 0: Main dps -->
+      <div class="build" data-build-index="0">
+        <div class="card">
+          <div class="header">
+            <h1>Main dps</h1>
+          </div>
+
+          <div class="portrait-section">
+            <img
+              class="portrait"
+              src="../img/personajes/mav.png"
+              alt="Portrait"
+            />
+          </div>
+
+          <div class="section">
+            <div class="section-title">Armas</div>
+            <div class="weapons-grid">
+              <div class="weapon">
+                <img src="../img/armas/mav.png" alt="W1" />
+                <div class="wname">Mil So­les A­bra­sa­do­res</div>
+              </div>
+              <div class="weapon">
+                <img src="../img/armas/medula.png" alt="W2" />
+                <div class="wname">Mé­du­la de la Ser­pien­te Ma­ri­na</div>
+              </div>
+              <div class="weapon">
+                <img src="../img/armas/dehya.png" alt="W2" />
+                <div class="wname">Em­ble­ma del Mar de Jun­cos</div>
+              </div>
+              <div class="weapon">
+                <img src="../img/armas/navia.png" alt="W2" />
+                <div class="wname">Sen­ten­cia­do­ra</div>
+              </div>
+              <div class="weapon">
+                <img src="../img/armas/itto.png" alt="W3" />
+                <div class="wname">Es­pa­dón Cor­ni­rro­jo</div>
+              </div>
+              <div class="weapon">
+                <img src="../img/armas/mailed.png" alt="W3" />
+                <div class="wname pd-top">Fie­rro Flo­rior­la­do</div>
+              </div>
+              <div class="weapon">
+                <img src="../img/armas/lapida.png" alt="W3" />
+                <div class="wname pd-top">Lá­pi­da del Lo­bo</div>
+              </div>
+              <div class="weapon">
+                <img src="../img/armas/tidalshadow.png" alt="W3" />
+                <div class="wname pd-top">Som­bra de la Ma­re­a</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="section">
+            <div class="section-title">Talentos</div>
+            <div class="talents" role="list">
+              <div class="talent" role="listitem">
+                <img src="../img/talentos/mavuika/q.png" alt="T1" />
+              </div>
+              <div class="talent arrow" aria-hidden="true">></div>
+              <div class="talent" role="listitem">
+                <img src="../img/talentos/mavuika/e.png" alt="T2" />
+              </div>
+              <div class="talent arrow" aria-hidden="true">>></div>
+              <div class="talent" role="listitem">
+                <img src="../img/talentos/aa/espada.png" alt="T3" />
+              </div>
+            </div>
+            <div class="stats-secundarias" aria-labelledby="notes-heading">
+              <div
+                class="notes-content"
+                style="
+                  font-size: 14px;
+                  color: var(--title-text);
+                  line-height: 1.5;
+                "
+              >
+                Los básicos se pueden dejar sin subir.
+              </div>
+            </div>
+          </div>
+
+          <div class="section">
+            <div class="section-title">Artefactos</div>
+            <div class="artifacts-grid">
+              <div class="artifact best">
+                <img src="../img/artefactos/obsidiana.png" alt="A1" />
+              </div>
+              <div class="artifact has-badge">
+                <img src="../img/artefactos/cazador.png" alt="A1" />
+                <img
+                  class="artifact-badge"
+                  src="../img/personajes/furina.png"
+                  alt="Versión alternativa"
+                  aria-hidden="true"
+                />
+              </div>
+              <div
+                class="artifact artifact--split"
+                role="group"
+                aria-label="Artifact A y Artifact B"
+              >
+                <img
+                  class="split-img top"
+                  src="../img/artefactos/gladiador.png"
+                  alt="Artefacto A"
+                />
+                <img
+                  class="split-img bottom"
+                  src="../img/artefactos/aureos.png"
+                  alt="Artefacto B"
+                />
+                <div class="split-label top">A</div>
+                <div class="split-label bottom">B</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="stats-section">
+          <div class="stats-title">Estadísticas</div>
+          <div class="stats-wrap">
+            <div class="principales-label">Principales</div>
+            <div class="principales-grid">
+              <div class="slot">
+                <div class="slot-sub">Reloj</div>
+                <div class="slot-main">Maestría/Ataque</div>
+              </div>
+              <div class="slot">
+                <div class="slot-sub">Cáliz</div>
+                <div class="slot-main">Bono pyro</div>
+              </div>
+              <div class="slot">
+                <div class="slot-sub">Corona</div>
+                <div class="slot-main">Prob/Daño crítico</div>
+              </div>
+            </div>
+
+            <div class="principales-label">Secundarias</div>
+            <div class="stats-secundarias">
+              Daño crítico > Prob. crítico > Maestría > ATQ%
+            </div>
+
+            <div class="stats-total-title">
+              Total de estadísticas en reposo (sin buffs de equipo)
+            </div>
+            <ul class="stats-list">
+              <li>0 de recarga</li>
+              <li>40-60 de probabilidad de crítico</li>
+              <li>El máximo de daño crítico que se pueda</li>
+              <li>El máximo de maestría que se pueda</li>
+              <li>El máximo de ataque que se pueda</li>
+            </ul>
+            <div class="principales-label">Notas</div>
+            <div class="stats-secundarias" aria-labelledby="notes-heading">
+              <div
+                class="notes-content"
+                style="
+                  font-size: 14px;
+                  color: var(--title-text);
+                  line-height: 1.5;
+                "
+              >
+                En el reloj de lleva maestría si se juega en un equipo de
+                derretidos o vaporizados, ataque si se juega en mono-pyro o
+                sobrecarga.
+              </div>
+            </div>
+          </div>
+
+          <div class="teams-section">
+            <div class="teams-title">Compañeros de equipo</div>
+
+            <div class="team-row">
+              <div class="team-type">Derretidos/Vaporizados</div>
+              <div class="team-grid">
+                <div class="team-line">
+                  <div class="member best">
+                    <img src="../img/personajes/itzy.png" alt="C4" />
+                  </div>
+                  <div class="member best">
+                    <img src="../img/personajes/kaeya.png" alt="C4" />
+                  </div>
+                  <div class="member">
+                    <img src="../img/personajes/rosaria.png" alt="C1" />
+                  </div>
+                  <div class="member">
+                    <img src="../img/personajes/layla.png" alt="C2" />
+                  </div>
+                  <div class="member">
+                    <img src="../img/personajes/esco.png" alt="C3" />
+                  </div>
+                </div>
+                <br />
+                <div class="team-line">
+                  <div class="member best">
+                    <img src="../img/personajes/furina.png" alt="C4" />
+                  </div>
+                  <div class="member best">
+                    <img src="../img/personajes/aino.png" alt="C4" />
+                  </div>
+                  <div class="member">
+                    <img src="../img/personajes/yelan.png" alt="C1" />
+                  </div>
+                  <div class="member">
+                    <img src="../img/personajes/xingqiu.png" alt="C2" />
+                  </div>
+                </div>
+                <br />
+                <div class="team-line">
+                  <div class="member best">
+                    <img src="../img/personajes/iansan.png" alt="C4" />
+                  </div>
+                  <div class="member best">
+                    <img src="../img/personajes/xilo.png" alt="C4" />
+                  </div>
+                  <div class="member best">
+                    <img src="../img/personajes/bennett.png" alt="C1" />
+                  </div>
+                  <div class="member">
+                    <img src="../img/personajes/sacarosa.png" alt="C2" />
+                  </div>
+                  <div class="member">
+                    <img src="../img/personajes/kazuha.png" alt="C3" />
+                  </div>
+                  <div class="member">
+                    <img src="../img/personajes/zhongli.png" alt="C4" />
+                  </div>
+                  <div class="member">
+                    <img src="../img/personajes/kachina.png" alt="C4" />
+                  </div>
+                  <div class="member">
+                    <img src="../img/personajes/lanyan.png" alt="C4" />
+                  </div>
+                  <div class="member">
+                    <img src="../img/personajes/sayu.png" alt="C1" />
+                  </div>
+                  <div class="member">
+                    <img src="../img/personajes/lynette.png" alt="C2" />
+                  </div>
+                  <div class="member">
+                    <img src="../img/personajes/venti.png" alt="C2" />
+                  </div>
+                  <div class="member">
+                    <img src="../img/personajes/jean.png" alt="C2" />
+                  </div>
+                </div>
+                <br />
+                <div class="team-type">Ejemplos</div>
+              </div>
+              <div class="team-grid">
+                <div class="team-line">
+                  <div class="member">
+                    <img src="../img/personajes/mav.png" alt="C1" />
+                  </div>
+                  <div class="member">
+                    <img src="../img/personajes/itzy.png" alt="C2" />
+                  </div>
+                  <div class="member">
+                    <img src="../img/personajes/iansan.png" alt="C3" />
+                  </div>
+                  <div class="member">
+                    <img src="../img/personajes/bennett.png" alt="C4" />
+                  </div>
+                </div>
+              </div>
+              <br />
+              <div class="team-grid">
+                <div class="team-line">
+                  <div class="member">
+                    <img src="../img/personajes/mav.png" alt="C1" />
+                  </div>
+                  <div class="member">
+                    <img src="../img/personajes/furina.png" alt="C2" />
+                  </div>
+                  <div class="member">
+                    <img src="../img/personajes/xilo.png" alt="C3" />
+                  </div>
+                  <div class="member">
+                    <img src="../img/personajes/bennett.png" alt="C4" />
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="team-row">
+              <div class="team-type">Monopyro/Sobrecarga</div>
+              <div class="team-grid">
+                <div class="team-line">
+                  <div class="member best">
+                    <img src="../img/personajes/iansan.png" alt="C4" />
+                  </div>
+                  <div class="member best">
+                    <img src="../img/personajes/xilo.png" alt="C4" />
+                  </div>
+                  <div class="member best">
+                    <img src="../img/personajes/bennett.png" alt="C1" />
+                  </div>
+                  <div class="member best">
+                    <img src="../img/personajes/kazuha.png" alt="C3" />
+                  </div>
+                  <div class="member best">
+                    <img src="../img/personajes/chev.png" alt="C2" />
+                  </div>
+                  <div class="member">
+                    <img src="../img/personajes/ororon.png" alt="C2" />
+                  </div>
+                  <div class="member">
+                    <img src="../img/personajes/sacarosa.png" alt="C2" />
+                  </div>
+                  <div class="member">
+                    <img src="../img/personajes/zhongli.png" alt="C4" />
+                  </div>
+                  <div class="member">
+                    <img src="../img/personajes/kachina.png" alt="C4" />
+                  </div>
+                  <div class="member">
+                    <img src="../img/personajes/lanyan.png" alt="C4" />
+                  </div>
+                  <div class="member">
+                    <img src="../img/personajes/sayu.png" alt="C1" />
+                  </div>
+                  <div class="member">
+                    <img src="../img/personajes/lynette.png" alt="C2" />
+                  </div>
+                  <div class="member">
+                    <img src="../img/personajes/venti.png" alt="C2" />
+                  </div>
+                  <div class="member">
+                    <img src="../img/personajes/jean.png" alt="C2" />
+                  </div>
+                </div>
+                <br />
+                <div class="team-type">Ejemplos</div>
+              </div>
+              <div class="team-grid">
+                <div class="team-line">
+                  <div class="member">
+                    <img src="../img/personajes/mav.png" alt="C1" />
+                  </div>
+                  <div class="member">
+                    <img src="../img/personajes/chev.png" alt="C2" />
+                  </div>
+                  <div class="member">
+                    <img src="../img/personajes/iansan.png" alt="C3" />
+                  </div>
+                  <div class="member">
+                    <img src="../img/personajes/bennett.png" alt="C4" />
+                  </div>
+                </div>
+              </div>
+              <br />
+              <div class="team-grid">
+                <div class="team-line">
+                  <div class="member">
+                    <img src="../img/personajes/mav.png" alt="C1" />
+                  </div>
+                  <div class="member">
+                    <img src="../img/personajes/xilo.png" alt="C2" />
+                  </div>
+                  <div class="member">
+                    <img src="../img/personajes/iansan.png" alt="C3" />
+                  </div>
+                  <div class="member">
+                    <img src="../img/personajes/bennett.png" alt="C4" />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Build 1: Soporte/Subdps -->
+      <div class="build" data-build-index="1">
+        <div class="card">
+          <div class="header">
+            <h1>Main dps</h1>
+          </div>
+
+          <div class="portrait-section">
+            <img
+              class="portrait"
+              src="../img/personajes/mav.png"
+              alt="Portrait"
+            />
+          </div>
+
+          <div class="section">
+            <div class="section-title">Armas</div>
+            <div class="weapons-grid">
+              <div class="weapon">
+                <img src="../img/armas/mav.png" alt="W1" />
+                <div class="wname">Mil So­les A­bra­sa­do­res</div>
+              </div>
+              <div class="weapon">
+                <img src="../img/armas/medula.png" alt="W2" />
+                <div class="wname">Mé­du­la de la Ser­pien­te Ma­ri­na</div>
+              </div>
+              <div class="weapon">
+                <img src="../img/armas/dehya.png" alt="W2" />
+                <div class="wname">Em­ble­ma del Mar de Jun­cos</div>
+              </div>
+              <div class="weapon">
+                <img src="../img/armas/navia.png" alt="W2" />
+                <div class="wname">Sen­ten­cia­do­ra</div>
+              </div>
+              <div class="weapon">
+                <img src="../img/armas/itto.png" alt="W3" />
+                <div class="wname">Es­pa­dón Cor­ni­rro­jo</div>
+              </div>
+              <div class="weapon">
+                <img src="../img/armas/mailed.png" alt="W3" />
+                <div class="wname pd-top">Fie­rro Flo­rior­la­do</div>
+              </div>
+              <div class="weapon">
+                <img src="../img/armas/lapida.png" alt="W3" />
+                <div class="wname pd-top">Lá­pi­da del Lo­bo</div>
+              </div>
+              <div class="weapon">
+                <img src="../img/armas/tidalshadow.png" alt="W3" />
+                <div class="wname pd-top">Som­bra de la Ma­re­a</div>
+              </div>
+              <div class="weapon">
+                <img src="../img/armas/terragitador.png" alt="W3" />
+                <div class="wname pd-top">Te­rra­gi­ta­dor</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="section">
+            <div class="section-title">Talentos</div>
+            <div class="talents" role="list">
+              <div class="talent" role="listitem">
+                <img src="../img/talentos/mavuika/e.png" alt="T1" />
+              </div>
+              <div class="talent arrow" aria-hidden="true">></div>
+              <div class="talent" role="listitem">
+                <img src="../img/talentos/mavuika/q.png" alt="T2" />
+              </div>
+              <div class="talent arrow" aria-hidden="true">>></div>
+              <div class="talent" role="listitem">
+                <img src="../img/talentos/aa/espada.png" alt="T3" />
+              </div>
+            </div>
+            <div class="stats-secundarias" aria-labelledby="notes-heading">
+              <div
+                class="notes-content"
+                style="
+                  font-size: 14px;
+                  color: var(--title-text);
+                  line-height: 1.5;
+                "
+              >
+                Los básicos se pueden dejar sin subir.
+              </div>
+            </div>
+          </div>
+
+          <div class="section">
+            <div class="section-title">Artefactos</div>
+            <div class="artifacts-grid">
+              <div class="artifact best">
+                <img src="../img/artefactos/pergamino.png" alt="A1" />
+              </div>
+              <div class="artifact best">
+                <img src="../img/artefactos/obsidiana.png" alt="A1" />
+              </div>
+              <div
+                class="artifact artifact--split"
+                role="group"
+                aria-label="Artifact A y Artifact B"
+              >
+                <img
+                  class="split-img top"
+                  src="../img/artefactos/gladiador.png"
+                  alt="Artefacto A"
+                />
+                <img
+                  class="split-img bottom"
+                  src="../img/artefactos/aureos.png"
+                  alt="Artefacto B"
+                />
+                <div class="split-label top">A</div>
+                <div class="split-label bottom">B</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="stats-section">
+          <div class="stats-title">Estadísticas</div>
+          <div class="stats-wrap">
+            <div class="principales-label">Principales</div>
+            <div class="principales-grid">
+              <div class="slot">
+                <div class="slot-sub">Reloj</div>
+                <div class="slot-main">Maestría/Ataque</div>
+              </div>
+              <div class="slot">
+                <div class="slot-sub">Cáliz</div>
+                <div class="slot-main">Bono pyro</div>
+              </div>
+              <div class="slot">
+                <div class="slot-sub">Corona</div>
+                <div class="slot-main">Prob/Daño crítico</div>
+              </div>
+            </div>
+
+            <div class="principales-label">Secundarias</div>
+            <div class="stats-secundarias">
+              Daño crítico > Prob. crítico > Maestría > ATQ%
+            </div>
+
+            <div class="stats-total-title">
+              Total de estadísticas en reposo (sin buffs de equipo)
+            </div>
+            <ul class="stats-list">
+              <li>0 de recarga</li>
+              <li>
+                40-60 de probabilidad de crítico con obsidiana, 80-100 con
+                pergamino
+              </li>
+              <li>El máximo de daño crítico que se pueda</li>
+              <li>El máximo de maestría que se pueda</li>
+              <li>El máximo de ataque que se pueda</li>
+            </ul>
+            <div class="principales-label">Notas</div>
+            <div class="stats-secundarias" aria-labelledby="notes-heading">
+              <div
+                class="notes-content"
+                style="
+                  font-size: 14px;
+                  color: var(--title-text);
+                  line-height: 1.5;
+                "
+              >
+                En el reloj de lleva maestría si se juega en un equipo de
+                derretidos o vaporizados y ella es el daño principal, en el
+                resto lleva atk.
+              </div>
+            </div>
+          </div>
+
+          <div class="teams-section">
+            <div class="teams-title">Compañeros de equipo</div>
+
+            <div class="team-row">
+              <div class="team-type">Soporte general</div>
+              <div class="team-grid">
+                <div class="team-line">
+                  <div class="member">
+                    <img src="../img/personajes/kinich.png" alt="C4" />
+                  </div>
+                  <div class="member">
+                    <img src="../img/personajes/mualani.png" alt="C4" />
+                  </div>
+                  <div class="member">
+                    <img src="../img/personajes/arle.png" alt="C1" />
+                  </div>
+                  <div class="member">
+                    <img src="../img/personajes/varesa.png" alt="C3" />
+                  </div>
+                  <div class="member">
+                    <img src="../img/personajes/chasca.png" alt="C2" />
+                  </div>
+                  <div class="member">
+                    <img src="../img/personajes/clorinde.png" alt="C2" />
+                  </div>
+                  <div class="member">
+                    <img src="../img/personajes/emilie.png" alt="C2" />
+                  </div>
+                  <div class="member">
+                    <img src="../img/personajes/navia.png" alt="C4" />
+                  </div>
+                  <div class="member">
+                    <img src="../img/personajes/furina.png" alt="C4" />
+                  </div>
+                  <div class="member">
+                    <img src="../img/personajes/lyney.png" alt="C4" />
+                  </div>
+                  <div class="member">
+                    <img src="../img/personajes/scara.png" alt="C1" />
+                  </div>
+                  <div class="member">
+                    <img src="../img/personajes/itto.png" alt="C2" />
+                  </div>
+                  <div class="member">
+                    <img src="../img/personajes/ganyu.png" alt="C2" />
+                  </div>
+                  <div class="member">
+                    <img src="../img/personajes/xiao.png" alt="C2" />
+                  </div>
+                  <div class="member">
+                    <img src="../img/personajes/tartas.png" alt="C4" />
+                  </div>
+                  <div class="member">
+                    <img src="../img/personajes/ifa.png" alt="C1" />
+                  </div>
+                  <div class="member">
+                    <img src="../img/personajes/aino.png" alt="C2" />
+                  </div>
+                  <div class="member">
+                    <img src="../img/personajes/lanyan.png" alt="C2" />
+                  </div>
+                  <div class="member">
+                    <img src="../img/personajes/ororon.png" alt="C2" />
+                  </div>
+                  <div class="member">
+                    <img src="../img/personajes/kachina.png" alt="C4" />
+                  </div>
+                  <div class="member">
+                    <img src="../img/personajes/chev.png" alt="C1" />
+                  </div>
+                  <div class="member">
+                    <img src="../img/personajes/charlotte.png" alt="C2" />
+                  </div>
+                  <div class="member">
+                    <img src="../img/personajes/lynette.png" alt="C2" />
+                  </div>
+                  <div class="member">
+                    <img src="../img/personajes/dori.png" alt="C2" />
+                  </div>
+                  <div class="member">
+                    <img src="../img/personajes/mas.png" alt="C2" />
+                  </div>
+                </div>
+                <br />
+                <div class="team-type">Ejemplos</div>
+              </div>
+              <div class="team-grid">
+                <div class="team-line">
+                  <div class="member">
+                    <img src="../img/personajes/mualani.png" alt="C1" />
+                  </div>
+                  <div class="member">
+                    <img src="../img/personajes/nahida.png" alt="C2" />
+                  </div>
+                  <div class="member">
+                    <img src="../img/personajes/xilo.png" alt="C3" />
+                  </div>
+                  <div class="member">
+                    <img src="../img/personajes/mav.png" alt="C4" />
+                  </div>
+                </div>
+              </div>
+              <br />
+              <div class="team-grid">
+                <div class="team-line">
+                  <div class="member">
+                    <img src="../img/personajes/kinich.png" alt="C1" />
+                  </div>
+                  <div class="member">
+                    <img src="../img/personajes/emilie.png" alt="C2" />
+                  </div>
+                  <div class="member">
+                    <img src="../img/personajes/mav.png" alt="C3" />
+                  </div>
+                  <div class="member">
+                    <img src="../img/personajes/iansan.png" alt="C4" />
+                  </div>
+                </div>
+              </div>
+              <br />
+              <div class="team-grid">
+                <div class="team-line">
+                  <div class="member">
+                    <img src="../img/personajes/varesa.png" alt="C1" />
+                  </div>
+                  <div class="member">
+                    <img src="../img/personajes/mav.png" alt="C2" />
+                  </div>
+                  <div class="member">
+                    <img src="../img/personajes/iansan.png" alt="C3" />
+                  </div>
+                  <div class="member">
+                    <img src="../img/personajes/chev.png" alt="C4" />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      (function () {
+        const builds = ["Main dps", "Soporte/Subdps"];
+        function postBuilds() {
+          if (window.parent && window.parent !== window) {
+            window.parent.postMessage({ type: "builds", builds }, "*");
+          }
+        }
+
+        function showBuild(index) {
+          const nodes = document.querySelectorAll(".build");
+          nodes.forEach(
+            (n) =>
+              (n.style.display = n.dataset.buildIndex == index ? "" : "none")
+          );
+        }
+
+        window.addEventListener("message", (ev) => {
+          const d = ev.data || {};
+          if (d && d.type === "show-build") {
+            showBuild(d.index);
+          }
+        });
+
+        window.addEventListener("load", function () {
+          postBuilds();
+          showBuild(0);
+        });
+      })();
+    </script>
+    <script src="app.js"></script>
+  </body>
+</html>
