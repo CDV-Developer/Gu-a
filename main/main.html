@@ -21,20 +21,44 @@
         dataLayer.push(arguments);
       }
       gtag("js", new Date());
-
       gtag("config", "G-8ZBDH42H0H");
     </script>
   </head>
-  <body>
+  <body data-game="gi">
     <header class="topbar">
       <div class="topbar-inner">
         <div class="brand">
-          <div class="logo">
-            <img src="../img/logo.png" alt="Visualizador de Builds" />
+          <div class="brand-logos" role="tablist" aria-label="Juego">
+            <button
+              id="btnGI"
+              class="brand-logo active"
+              role="tab"
+              aria-selected="true"
+              data-game="gi"
+              title="Genshin"
+            >
+              <img src="../img/logo.png" alt="Genshin" />
+            </button>
+            <button
+              id="btnZZZ"
+              class="brand-logo"
+              role="tab"
+              aria-selected="false"
+              data-game="zzz"
+              title="Zenless Zone Zero"
+            >
+              <img
+                src="../img/logozzz.png"
+                onerror="this.style.display='none'"
+                alt="ZZZ"
+              />
+            </button>
           </div>
           <div class="brand-text">
             <div class="app-title">Visualizador de Builds</div>
-            <div class="app-sub">Guías de personajes</div>
+            <div class="app-sub">
+              <span id="gameLabel">Genshin Impact</span> — Guías de personajes
+            </div>
           </div>
         </div>
       </div>
@@ -73,57 +97,8 @@
             >
               Filtros ▸
             </button>
-            <div class="filters" id="filterPanel">
-              <label class="filter">
-                <span>Rareza</span>
-                <select id="filterRarity" class="filter-select">
-                  <option value="">Todas</option>
-                  <option value="5">5★</option>
-                  <option value="4">4★</option>
-                </select>
-              </label>
 
-              <label class="filter">
-                <span>Arma</span>
-                <select id="filterWeapon" class="filter-select">
-                  <option value="">Todas</option>
-                  <option value="lanza">Lanza</option>
-                  <option value="mandoble">Mandoble</option>
-                  <option value="catalizador">Catalizador</option>
-                  <option value="espada">Espada</option>
-                  <option value="arco">Arco</option>
-                </select>
-              </label>
-
-              <label class="filter">
-                <span>Elemento</span>
-                <select id="filterElement" class="filter-select">
-                  <option value="">Todos</option>
-                  <option value="electro">Electro</option>
-                  <option value="hydro">Hydro</option>
-                  <option value="pyro">Pyro</option>
-                  <option value="anemo">Anemo</option>
-                  <option value="dendro">Dendro</option>
-                  <option value="geo">Geo</option>
-                  <option value="cryo">Cryo</option>
-                </select>
-              </label>
-
-              <label class="filter">
-                <span>Región</span>
-                <select id="filterRegion" class="filter-select">
-                  <option value="">Todas</option>
-                  <option value="mondstadt">Mondstadt</option>
-                  <option value="liyue">Liyue</option>
-                  <option value="inazuma">Inazuma</option>
-                  <option value="sumeru">Sumeru</option>
-                  <option value="fontaine">Fontaine</option>
-                  <option value="natlan">Natlan</option>
-                  <option value="nod-krai">Nod Krai</option>
-                  <option value="narnia">Narnia</option>
-                </select>
-              </label>
-            </div>
+            <div class="filters" id="filterPanel"></div>
 
             <div class="cards-wrap" id="cardsWrap"></div>
           </div>
@@ -150,11 +125,11 @@
       </main>
     </div>
 
-    <script id="tablesIndex" type="application/json">
+    <script id="tablesIndexGI" type="application/json">
       [
         {
           "title": "Aino",
-          "file": "../tablas/aino.html",
+          "file": "../tablasGI/aino.html",
           "builds": ["Soporte"],
           "rarity": "4",
           "weapon": "mandoble",
@@ -164,7 +139,7 @@
         },
         {
           "title": "Dahlia",
-          "file": "../tablas/dahlia.html",
+          "file": "../tablasGI/dahlia.html",
           "builds": ["Soporte/Escudo"],
           "rarity": "4",
           "weapon": "espada",
@@ -174,7 +149,7 @@
         },
         {
           "title": "Flins",
-          "file": "../tablas/flins.html",
+          "file": "../tablasGI/flins.html",
           "builds": ["Main dps"],
           "rarity": "5",
           "weapon": "lanza",
@@ -184,7 +159,7 @@
         },
         {
           "title": "Chasca",
-          "file": "../tablas/chasca.html",
+          "file": "../tablasGI/chasca.html",
           "builds": ["Main dps"],
           "rarity": "5",
           "weapon": "arco",
@@ -194,7 +169,7 @@
         },
         {
           "title": "Skirk",
-          "file": "../tablas/skirk.html",
+          "file": "../tablasGI/skirk.html",
           "builds": ["Main dps (normales)", "Main dps (nuke)"],
           "rarity": "5",
           "weapon": "espada",
@@ -204,7 +179,7 @@
         },
         {
           "title": "Scara",
-          "file": "../tablas/scara.html",
+          "file": "../tablasGI/scara.html",
           "builds": ["Main dps"],
           "rarity": "5",
           "weapon": "catalizador",
@@ -214,7 +189,7 @@
         },
         {
           "title": "Dori",
-          "file": "../tablas/dori.html",
+          "file": "../tablasGI/dori.html",
           "builds": ["Soporte/Healer"],
           "rarity": "4",
           "weapon": "mandoble",
@@ -224,7 +199,7 @@
         },
         {
           "title": "Lauma",
-          "file": "../tablas/lauma.html",
+          "file": "../tablasGI/lauma.html",
           "builds": ["Soporte"],
           "rarity": "5",
           "weapon": "catalizador",
@@ -234,7 +209,7 @@
         },
         {
           "title": "Ororon",
-          "file": "../tablas/ororon.html",
+          "file": "../tablasGI/ororon.html",
           "builds": ["Soporte/Subdps"],
           "rarity": "4",
           "weapon": "arco",
@@ -244,7 +219,7 @@
         },
         {
           "title": "Nefer",
-          "file": "../tablas/nefer.html",
+          "file": "../tablasGI/nefer.html",
           "builds": ["Main dps"],
           "rarity": "5",
           "weapon": "catalizador",
@@ -254,7 +229,7 @@
         },
         {
           "title": "Sacarosa",
-          "file": "../tablas/sacarosa.html",
+          "file": "../tablasGI/sacarosa.html",
           "builds": ["Soporte"],
           "rarity": "4",
           "weapon": "catalizador",
@@ -264,7 +239,7 @@
         },
         {
           "title": "Ineffa",
-          "file": "../tablas/ineffa.html",
+          "file": "../tablasGI/ineffa.html",
           "builds": ["Soporte/Subdps/Escudo"],
           "rarity": "5",
           "weapon": "lanza",
@@ -274,7 +249,7 @@
         },
         {
           "title": "Escoffier",
-          "file": "../tablas/esco.html",
+          "file": "../tablasGI/esco.html",
           "builds": ["Soporte/Subdps"],
           "rarity": "5",
           "weapon": "lanza",
@@ -284,7 +259,7 @@
         },
         {
           "title": "Tignari",
-          "file": "../tablas/tignari.html",
+          "file": "../tablasGI/tignari.html",
           "builds": ["Main dps"],
           "rarity": "5",
           "weapon": "arco",
@@ -294,7 +269,7 @@
         },
         {
           "title": "Varesa",
-          "file": "../tablas/varesa.html",
+          "file": "../tablasGI/varesa.html",
           "builds": ["Main dps"],
           "rarity": "5",
           "weapon": "catalizador",
@@ -304,7 +279,7 @@
         },
         {
           "title": "Mizuki",
-          "file": "../tablas/mizuki.html",
+          "file": "../tablasGI/mizuki.html",
           "builds": ["Driver"],
           "rarity": "5",
           "weapon": "catalizador",
@@ -314,7 +289,7 @@
         },
         {
           "title": "Citlali",
-          "file": "../tablas/citlali.html",
+          "file": "../tablasGI/citlali.html",
           "builds": ["Soporte/Escudo"],
           "rarity": "5",
           "weapon": "catalizador",
@@ -324,13 +299,38 @@
         },
         {
           "title": "Mavuika",
-          "file": "../tablas/mavuika.html",
+          "file": "../tablasGI/mavuika.html",
           "builds": ["Main dps", "Soporte/Subdps"],
           "rarity": "5",
           "weapon": "mandoble",
           "element": "pyro",
           "region": "natlan",
           "img": "../img/personajes/mav.png"
+        },
+        {
+          "title": "Furina",
+          "file": "../tablasGI/furina.html",
+          "builds": ["Soporte/Subdps"],
+          "rarity": "5",
+          "weapon": "espada",
+          "element": "hydro",
+          "region": "fontaine",
+          "img": "../img/personajes/furina.png"
+        }
+      ]
+    </script>
+
+    <script id="tablesIndexZZZ" type="application/json">
+      [
+        {
+          "title": "Nicole",
+          "file": "../tablasZZZ/nicole.html",
+          "builds": ["Soporte/Subdps"],
+          "range": "A",
+          "type": "auxiliar",
+          "element": "etéreo",
+          "faction": "liebres astutas",
+          "img": "../img/zzz/personajes/nicole.png"
         }
       ]
     </script>

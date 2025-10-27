@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Furina - Ficha</title>
+
+    <link rel="stylesheet" href="app.css" />
+  </head>
+  <body class="element-hydro">
+    <div class="container">
+      <div class="card">
+        <div class="header">
+          <h1>Furina</h1>
+        </div>
+
+        <div class="portrait-section">
+          <img
+            class="portrait"
+            src="../img/personajes/furina.png"
+            alt="Portrait"
+          />
+        </div>
+
+        <div class="section">
+          <div class="section-title">Armas</div>
+          <div class="weapons-grid">
+            <div class="weapon">
+              <img src="../img/armas/favonius.png" alt="W1" />
+              <div class="wname">Es­pa­da de Fa­vo­nius</div>
+            </div>
+            <div class="weapon best">
+              <img src="../img/armas/nilou.png" alt="W2" />
+              <div class="wname">Lla­ve de la Co­ro­na­ción</div>
+            </div>
+            <div class="weapon best">
+              <img src="../img/armas/furina.png" alt="W3" />
+              <div class="wname">Ful­gor de las A­guas Cal­mas</div>
+            </div>
+            <div class="weapon">
+              <img src="../img/armas/tuberia.png" alt="W3" />
+              <div class="wname pd-top">Va­do del Rí­o Ce­ni­cien­to</div>
+            </div>
+            <div class="weapon">
+              <img src="../img/armas/colmillolupino.png" alt="W5" />
+              <div class="wname">Col­mi­llo Lu­pi­no</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="section">
+          <div class="section-title">Talentos</div>
+          <div class="talents" role="list">
+            <div class="talent" role="listitem">
+              <img src="../img/talentos/furina/q.png" alt="T1" />
+            </div>
+            <div class="talent arrow" aria-hidden="true">›</div>
+            <div class="talent" role="listitem">
+              <img src="../img/talentos/furina/e.png" alt="T2" />
+            </div>
+            <div class="talent arrow" aria-hidden="true">>></div>
+            <div class="talent" role="listitem">
+              <img src="../img/talentos/aa/espada.png" alt="T3" />
+            </div>
+          </div>
+          <div class="stats-secundarias" aria-labelledby="notes-heading">
+            <div
+              class="notes-content"
+              style="
+                font-size: 14px;
+                color: var(--title-text);
+                line-height: 1.5;
+              "
+            >
+              Los básicos se pueden dejar sin subir.
+            </div>
+          </div>
+        </div>
+
+        <div class="section">
+          <div class="section-title">Artefactos</div>
+          <div class="artifacts-grid">
+            <div class="artifact">
+              <img src="../img/artefactos/compañia.png" alt="A1" />
+            </div>
+            <div class="artifact">
+              <img src="../img/artefactos/tenacidad.png" alt="A2" />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="stats-section">
+        <div class="stats-title">Estadísticas</div>
+        <div class="stats-wrap">
+          <div class="principales-label">Principales</div>
+          <div class="principales-grid">
+            <div class="slot">
+              <div class="slot-sub">Reloj</div>
+              <div class="slot-main">Recarga/Vida</div>
+            </div>
+            <div class="slot">
+              <div class="slot-sub">Cáliz</div>
+              <div class="slot-main">Bono hydro/Vida</div>
+            </div>
+            <div class="slot">
+              <div class="slot-sub">Corona</div>
+              <div class="slot-main">Prob/Daño crítico</div>
+            </div>
+          </div>
+
+          <div class="principales-label">Secundarias</div>
+          <div class="stats-secundarias">
+            Recarga de energía > Prob. crítico = Daño crítico > Vida
+          </div>
+
+          <div class="stats-total-title">
+            Total de estadísticas en reposo (sin buffs de equipo)
+          </div>
+          <ul class="stats-list">
+            <li>80 - 100 de prob.</li>
+            <li>190-250%+ de recarga, depende del equipo</li>
+            <li>El máximo de vida y daño crítico que se pueda</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="teams-section">
+        <div class="teams-title">Compañeros de equipo</div>
+
+        <div class="team-row">
+          <div class="team-type">Soporte general</div>
+          <div class="team-grid">
+            <div class="stats-secundarias" aria-labelledby="notes-heading">
+              <div
+                class="notes-content"
+                style="
+                  font-size: 14px;
+                  color: var(--title-text);
+                  line-height: 1.5;
+                "
+              >
+                Furina puede ir con cualquier personaje que aproveche el bono de
+                daño, el único requisito es que haya un healer en el equipo.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>
